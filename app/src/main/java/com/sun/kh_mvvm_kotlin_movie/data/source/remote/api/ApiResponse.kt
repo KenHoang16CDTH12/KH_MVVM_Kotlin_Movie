@@ -4,28 +4,30 @@ import retrofit2.Response
 import timber.log.Timber
 import java.io.IOException
 
+@Suppress("MemberVisibilityCanBePrivate")
 class ApiResponse<T> {
-  private val mCode: Int
-  private val mBody: T?
-  private val mMessage: String?
+  val code: Int
+  val body: T?
+  val message: String?
 
   val isSuccessful: Boolean
-    get() = mCode in 200..300
-  private val isFailure: Boolean
+    get() = code in 200..300
+  val isFailure: Boolean
 
   constructor(error: Throwable) {
-    mCode = 500
-    mBody = null
-    mMessage = error.message
-    isFailure = true
+    this.code = 500
+    this.body = null
+    this.message = error.message
+    this.isFailure = true
   }
 
   constructor(response: Response<T>) {
-    mCode = response.code()
+    this.code = response.code()
+
     if (response.isSuccessful) {
-      mBody = response.body()
-      mMessage = null
-      isFailure = false
+      this.body = response.body()
+      this.message = null
+      this.isFailure = false
     } else {
       var errorMessage: String? = null
       response.errorBody()?.let {
@@ -41,9 +43,10 @@ class ApiResponse<T> {
           errorMessage = response.message()
         }
       }
-      mBody = null
-      mMessage = errorMessage
-      isFailure = true
+
+      this.body = null
+      this.message = errorMessage
+      this.isFailure = true
     }
   }
 }
