@@ -7,7 +7,7 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.VideoListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface TvServicce {
+interface TvService {
 
   @GET("/3/tv/{tv_id}/keywords")
   fun fetchKeywords(@Path("tv_id") id: Int): LiveData<ApiResponse<KeywordListResponse>>
