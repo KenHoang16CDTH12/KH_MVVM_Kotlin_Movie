@@ -3,8 +3,11 @@ package com.sun.kh_mvvm_kotlin_movie.data.repository
 import androidx.lifecycle.LiveData
 import com.sun.kh_mvvm_kotlin_movie.data.model.Resource
 import com.sun.kh_mvvm_kotlin_movie.data.model.entity.Movie
+import com.sun.kh_mvvm_kotlin_movie.data.model.entity.Tv
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.DiscoverMovieResponse
+import com.sun.kh_mvvm_kotlin_movie.data.model.network.DiscoverTvResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.MovieResponseMapper
+import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.TvResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.TvDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiResponse
@@ -51,6 +54,37 @@ class DiscoverRepository @Inject constructor(
 
       override fun onFetchFailed(message: String?) {
         Timber.d("onFetchFailed $message")
+      }
+    }.asLiveData()
+  }
+
+  fun loadTvs(page: Int): LiveData<Resource<List<Tv>>> {
+    return object : NetworkBoundRepository<List<Tv>, DiscoverTvResponse, TvResponseMapper>() {
+      override fun saveFetchData(items: DiscoverTvResponse) {
+        for (item in items.results) {
+          item.page = page
+        }
+        tvDao.insertTv(tvs = items.results)
+      }
+
+      override fun shouldFetch(data: List<Tv>?): Boolean {
+        return data == null || data.isEmpty()
+      }
+
+      override fun loadFromDb(): LiveData<List<Tv>> {
+        return tvDao.getTvList(page_ = page)
+      }
+
+      override fun fetchService(): LiveData<ApiResponse<DiscoverTvResponse>> {
+        return discoverService.fetchDiscoverTv(page = page)
+      }
+
+      override fun mapper(): TvResponseMapper {
+        return TvResponseMapper()
+      }
+
+      override fun onFetchFailed(message: String?) {
+        Timber.d("oFetchFailed $message")
       }
     }.asLiveData()
   }
