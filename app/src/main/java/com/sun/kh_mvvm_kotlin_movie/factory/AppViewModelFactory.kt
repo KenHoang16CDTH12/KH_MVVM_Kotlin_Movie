@@ -2,9 +2,6 @@ package com.sun.kh_mvvm_kotlin_movie.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import java.lang.Exception
-import java.lang.IllegalArgumentException
-import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -21,6 +18,8 @@ class AppViewModelFactory @Inject constructor(
         ?: throw IllegalArgumentException("unknown model class $modelClass")
     return try {
       creator.get() as T
-    } catch (e: Exception) { throw RuntimeException(e) }
+    } catch (e: Exception) {
+      throw RuntimeException(e)
+    }
   }
 }
