@@ -1,12 +1,10 @@
 package com.sun.kh_mvvm_kotlin_movie.data.source.local.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.sun.kh_mvvm_kotlin_movie.data.model.entity.Tv
 
+@Dao
 interface TvDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
