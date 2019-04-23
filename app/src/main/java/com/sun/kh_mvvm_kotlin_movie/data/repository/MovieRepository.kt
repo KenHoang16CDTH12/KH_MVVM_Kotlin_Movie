@@ -12,7 +12,7 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.VideoListResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.KeywordResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.ReviewResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.VideoResponseMapper
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.MovieDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiResponse
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.MovieService
 import timber.log.Timber
@@ -20,10 +20,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MovieRepository @Inject constructor(
-    val service: MovieService,
-    val movieDao: MovieDao
-) : Repository {
+class MovieRepository @Inject
+constructor(val service: MovieService, val movieDao: MovieDao)
+  : Repository {
 
   init {
     Timber.d("Injection MovieRepository")
@@ -61,6 +60,7 @@ class MovieRepository @Inject constructor(
       }
     }.asLiveData()
   }
+
   fun loadVideoList(id: Int): LiveData<Resource<List<Video>>> {
     return object : NetworkBoundRepository<List<Video>, VideoListResponse, VideoResponseMapper>() {
       override fun saveFetchData(items: VideoListResponse) {

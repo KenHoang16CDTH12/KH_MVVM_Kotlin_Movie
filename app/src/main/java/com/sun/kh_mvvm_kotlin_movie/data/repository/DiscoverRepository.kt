@@ -8,8 +8,8 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.DiscoverMovieResponse
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.DiscoverTvResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.MovieResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.TvResponseMapper
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.TvDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.MovieDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.TvDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiResponse
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.TheDiscoverService
 import timber.log.Timber

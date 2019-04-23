@@ -15,10 +15,11 @@ import com.sun.kh_mvvm_kotlin_movie.util.AbsentLiveData
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor(
-    private val discoverRepository: DiscoverRepository,
-    private val peopleRepository: PeopleRepository
-) : ViewModel() {
+class MainActivityViewModel @Inject
+constructor(private val discoverRepository: DiscoverRepository,
+            private val peopleRepository: PeopleRepository)
+  : ViewModel()
+{
 
   private var moviePageLiveData: MutableLiveData<Int> = MutableLiveData()
   private val movieListLiveData: LiveData<Resource<List<Movie>>>
@@ -32,19 +33,18 @@ class MainActivityViewModel @Inject constructor(
   init {
     Timber.d("injection MainActivityViewModel")
 
-    movieListLiveData = switchMap(moviePageLiveData) {
+    movieListLiveData = Transformations.switchMap(moviePageLiveData) {
       moviePageLiveData.value?.let { discoverRepository.loadMovies(it) }
-          ?: AbsentLiveData.create()
+        ?: AbsentLiveData.create()
     }
 
-    tvListLiveData = switchMap(tvPageLiveData) {
-      tvPageLiveData.value?.let { discoverRepository.loadTvs(it) }
-          ?: AbsentLiveData.create()
+    tvListLiveData = Transformations.switchMap(tvPageLiveData) {
+      tvPageLiveData.value?.let { discoverRepository.loadTvs(it) } ?: AbsentLiveData.create()
     }
 
     peopleLiveData = Transformations.switchMap(peoplePageLiveData) {
       peoplePageLiveData.value?.let { peopleRepository.loadPeople(it) }
-          ?: AbsentLiveData.create()
+        ?: AbsentLiveData.create()
     }
   }
 

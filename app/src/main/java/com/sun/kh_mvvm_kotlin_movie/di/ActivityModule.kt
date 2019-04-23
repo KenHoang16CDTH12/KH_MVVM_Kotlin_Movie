@@ -7,6 +7,7 @@ import com.sun.kh_mvvm_kotlin_movie.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
+@Suppress("unused")
 @Module
 abstract class ActivityModule {
   @ContributesAndroidInjector(modules = [MainActivityFragmentModule::class])

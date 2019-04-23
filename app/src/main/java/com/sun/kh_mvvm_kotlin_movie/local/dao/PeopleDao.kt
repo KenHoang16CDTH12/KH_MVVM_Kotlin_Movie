@@ -1,4 +1,4 @@
-package com.sun.kh_mvvm_kotlin_movie.data.source.local.dao
+package com.sun.kh_mvvm_kotlin_movie.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

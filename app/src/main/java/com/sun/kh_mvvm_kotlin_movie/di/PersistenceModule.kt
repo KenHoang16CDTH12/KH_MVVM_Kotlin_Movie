@@ -3,13 +3,15 @@ package com.sun.kh_mvvm_kotlin_movie.di
 import android.app.Application
 import androidx.annotation.NonNull
 import androidx.room.Room
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.AppDatabase
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.PeopleDao
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.TvDao
+import com.sun.kh_mvvm_kotlin_movie.local.AppDatabase
+import com.sun.kh_mvvm_kotlin_movie.local.dao.MovieDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.PeopleDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.TvDao
+import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+@Module
 class PersistenceModule {
 
   @Provides

@@ -14,7 +14,7 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.KeywordListResponse
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.ReviewListResponse
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.VideoListResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.MovieRepository
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.MovieDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiUtil.successCall
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.MovieService
 import com.sun.kh_mvvm_kotlin_movie.util.MockTestUtil.Companion.mockKeywordList

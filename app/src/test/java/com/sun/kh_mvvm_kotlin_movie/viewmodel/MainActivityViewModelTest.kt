@@ -14,9 +14,9 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.entity.Tv
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.DiscoverMovieResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.DiscoverRepository
 import com.sun.kh_mvvm_kotlin_movie.data.repository.PeopleRepository
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.MovieDao
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.PeopleDao
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.TvDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.MovieDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.PeopleDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.TvDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiUtil.successCall
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.PeopleService
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.TheDiscoverService

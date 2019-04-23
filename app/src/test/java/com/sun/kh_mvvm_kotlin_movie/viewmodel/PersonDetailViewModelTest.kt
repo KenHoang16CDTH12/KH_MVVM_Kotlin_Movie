@@ -9,7 +9,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.sun.kh_mvvm_kotlin_movie.data.model.Resource
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.PersonDetail
 import com.sun.kh_mvvm_kotlin_movie.data.repository.PeopleRepository
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.PeopleDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.PeopleDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiUtil.successCall
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.PeopleService
 import com.sun.kh_mvvm_kotlin_movie.ui.detail.person.PersonDetailViewModel
