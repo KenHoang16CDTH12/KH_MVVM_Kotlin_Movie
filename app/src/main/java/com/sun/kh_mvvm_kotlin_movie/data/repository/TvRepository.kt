@@ -12,7 +12,7 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.VideoListResponse
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.KeywordResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.ReviewResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.VideoResponseMapper
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.TvDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.TvDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiResponse
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.TvService
 import timber.log.Timber

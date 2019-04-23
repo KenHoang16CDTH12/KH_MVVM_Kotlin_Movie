@@ -8,7 +8,7 @@ import com.sun.kh_mvvm_kotlin_movie.data.model.network.PeopleResponse
 import com.sun.kh_mvvm_kotlin_movie.data.model.network.PersonDetail
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.PeopleResponseMapper
 import com.sun.kh_mvvm_kotlin_movie.data.repository.mapper.PersonDetailResponseMapper
-import com.sun.kh_mvvm_kotlin_movie.data.source.local.dao.PeopleDao
+import com.sun.kh_mvvm_kotlin_movie.local.dao.PeopleDao
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.ApiResponse
 import com.sun.kh_mvvm_kotlin_movie.data.source.remote.api.PeopleService
 import timber.log.Timber

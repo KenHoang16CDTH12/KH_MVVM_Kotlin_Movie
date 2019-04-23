@@ -43,7 +43,7 @@ class Resource<out T>(
 
   companion object {
     fun <T> success(data: T?, onLastPage: Boolean): Resource<T> =
-        Resource(status = Status.SUCCESS, data = data, message = null, onLastPage = false)
+        Resource(status = Status.SUCCESS, data = data, message = null, onLastPage = onLastPage)
 
     fun <T> error(msg: String, data: T?): Resource<T> =
         Resource(status = Status.ERROR, data = data, message = msg, onLastPage = true)

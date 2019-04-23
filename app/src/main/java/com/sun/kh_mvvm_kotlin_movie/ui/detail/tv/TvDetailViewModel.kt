@@ -30,7 +30,7 @@ constructor(private val repository: TvRepository) : ViewModel() {
 
     keywordListLiveData = Transformations.switchMap(keywordIdLiveData) {
       keywordIdLiveData.value?.let { repository.loadKeywordList(it) }
-          ?: AbsentLiveData.create()
+        ?: AbsentLiveData.create()
     }
 
     videoListLiveData = Transformations.switchMap(videoIdLiveData) {
@@ -39,7 +39,7 @@ constructor(private val repository: TvRepository) : ViewModel() {
 
     reviewListLiveData = Transformations.switchMap(reviewIdLiveData) {
       reviewIdLiveData.value?.let { repository.loadReviewsList(it) }
-          ?: AbsentLiveData.create()
+        ?: AbsentLiveData.create()
     }
   }
 
